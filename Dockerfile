@@ -21,11 +21,11 @@ RUN \
     sed -i "s/^CheckSpace/#CheckSpace/" /etc/pacman.conf && \
     mkdir -p /etc/pacman.d && \
     cp -rf /rootfs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist && \
-    if [[ "$TARGETARCH" == "arm64" ]]; then \
+    if case "$TARGETARCH" in arm*) true;; *) false;; esac; then \
         sed -i 's/\$arch/'aarch64'/g' /etc/pacman.d/mirrorlist; \
     fi && \
     BOOTSTRAP_EXTRA_PACKAGES="" && \
-    if [[ "$TARGETARCH" == "arm64" ]]; then \
+    if case "$TARGETARCH" in arm*) true;; *) false;; esac; then \
         EXTRA_KEYRING_FILES=" \
             archlinuxarm-revoked \
             archlinuxarm-trusted \
