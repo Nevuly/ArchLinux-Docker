@@ -10,3 +10,11 @@ Maintainer: Yang Jeong Hun (Nevuly)
 | ------------ | --------------- | ------------ |
 | x86_64 | `linux/amd64` | [Arch Linux](https://archlinux.org) |
 | aarch64 | `linux/arm64` | [Arch Linux ARM](https://archlinuxarm.org) |
+| riscv64 | `linux/riscv64` | [Arch Linux RISC-V](https://archriscv.felixc.at) |
+
+## Tags
+
+|  Tag   |   Update   |    Type    |              Description               |
+| ------ | ---------- | ---------- | -------------------------------------- |
+| latest, base | **weekly**  | minimal    | Arch Linux with base installed |
+| base-devel  | **weeklly**  | base-devel | Arch Linux with base and base-devel installed   |
