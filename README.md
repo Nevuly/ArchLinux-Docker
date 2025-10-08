@@ -16,5 +16,5 @@ Maintainer: Yang Jeong Hun (Nevuly)
 
 |  Tag   |   Update   |    Type    |              Description               |
 | ------ | ---------- | ---------- | -------------------------------------- |
-| latest, base | **weekly**  | minimal    | Arch Linux with base installed |
-| base-devel  | **weeklly**  | base-devel | Arch Linux with base and base-devel installed   |
+| latest, base | **weekly** | base | Arch Linux with base installed |
+| base-devel | **weekly** | base-devel | Arch Linux with base and base-devel installed |
