@@ -38,7 +38,7 @@ RUN \
         BOOTSTRAP_EXTRA_PACKAGES="archlinuxarm-keyring"; \
     else \
         mkdir /tmp/archlinux-keyring && \
-        curl -L https://geo.mirror.pkgbuild.com/core/os/x86_64/archlinux-keyring-20250929-1-any.pkg.tar.zst | unzstd | tar -C /tmp/archlinux-keyring -xv && \
+        curl -L https://archlinux.org/packages/core/any/archlinux-keyring/download/ | unzstd | tar -C /tmp/archlinux-keyring -xv && \
         mv /tmp/archlinux-keyring/usr/share/pacman/keyrings/* /usr/share/keyrings/; \
     fi && \
     pacman-key --init && \
