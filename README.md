@@ -4,8 +4,11 @@
 
 Maintainer: Yang Jeong Hun (Nevuly)
 
-## Support Architecture Lists
+## Introduction
+This repository builds and publishes an unofficial Arch Linux Docker Image using [Github Actions](https://github.com/Nevuly/ArchLinux-Docker/actions).
+**A new image is built weekly on Sunday.**
 
+## Support Architecture Lists
 | Architecture | Docker Platform | Distribution |
 | ------------ | --------------- | ------------ |
 | x86_64 | `linux/amd64` | [Arch Linux](https://archlinux.org) |
@@ -13,7 +16,6 @@ Maintainer: Yang Jeong Hun (Nevuly)
 | riscv64 | `linux/riscv64` | [Arch Linux RISC-V](https://archriscv.felixc.at) |
 
 ## Tags
-
 |  Tag   |   Update   |    Type    |              Description               |
 | ------ | ---------- | ---------- | -------------------------------------- |
 | latest, base | **weekly** | base | Arch Linux with base installed |
