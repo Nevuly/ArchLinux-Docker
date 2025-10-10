@@ -24,11 +24,8 @@ RUN \
     sed -i "s/^CheckSpace/#CheckSpace/" /etc/pacman.conf && \
     mkdir -p /etc/pacman.d && \
     cp -rf /rootfs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist && \
-    if case "$TARGETARCH" in arm*) true;; *) false;; esac; then \
-        sed -i 's/\$arch/'aarch64'/g' /etc/pacman.d/mirrorlist; \
-    fi && \
     BOOTSTRAP_EXTRA_PACKAGES="" && \
-    if case "$TARGETARCH" in arm*) true;; *) false;; esac; then \
+    if case "$TARGETARCH" in arm64) true;; *) false;; esac; then \
         EXTRA_KEYRING_FILES=" \
             archlinuxarm-revoked \
             archlinuxarm-trusted \
@@ -39,6 +36,17 @@ RUN \
             curl "$EXTRA_KEYRING_URL$EXTRA_KEYRING_FILE" -o /usr/share/keyrings/$EXTRA_KEYRING_FILE -L; \
         done && \
         BOOTSTRAP_EXTRA_PACKAGES="archlinuxarm-keyring"; \
+    elif case "$TARGETARCH" in ppc64le) true;; *) false;; esac; then \
+        EXTRA_KEYRING_FILES=" \
+            archpower-revoked \
+            archpower-trusted \
+            archpower.gpg \
+        " && \
+        EXTRA_KEYRING_URL="https://raw.githubusercontent.com/kth5/archpower/master/archpower-keyring/" && \
+        for EXTRA_KEYRING_FILE in $EXTRA_KEYRING_FILES; do \
+            curl "$EXTRA_KEYRING_URL$EXTRA_KEYRING_FILE" -o /usr/share/keyrings/$EXTRA_KEYRING_FILE -L; \
+        done && \
+        BOOTSTRAP_EXTRA_PACKAGES="archpower-keyring"; \
     else \
         mkdir /tmp/archlinux-keyring && \
         curl -L https://archlinux.org/packages/core/any/archlinux-keyring/download/ | unzstd | tar -C /tmp/archlinux-keyring -xv && \

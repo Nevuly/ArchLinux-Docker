@@ -13,6 +13,7 @@ This repository builds and publishes an unofficial Arch Linux Docker Image using
 | ------------ | --------------- | ------------ |
 | x86_64 | `linux/amd64` | [Arch Linux](https://archlinux.org) |
 | aarch64 | `linux/arm64` | [Arch Linux ARM](https://archlinuxarm.org) |
+| powerpc64le | `linux/ppc64le` | [Arch POWER](https://archlinuxpower.org/) |
 | riscv64 | `linux/riscv64` | [Arch Linux RISC-V](https://archriscv.felixc.at) |
 
 ## Tags
