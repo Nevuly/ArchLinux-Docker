@@ -1,5 +1,8 @@
 FROM debian:sid AS bootstrap
 
+# Avoid warnings by switching to noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+
 ARG TARGETARCH
 ARG PACKAGE_GROUP=base
 
