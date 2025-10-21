@@ -36,12 +36,10 @@ jobs:
       - name: Generate Image Tags
         id: gen_tags
         run: |
-          DATE="$(date +'%Y%m%d')"
-
           if [[ ${{ matrix.tag }} == "base" ]]; then
-            echo "TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:latest,${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }},${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }}-$DATE" >> "$GITHUB_OUTPUT"
+            echo "TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:latest,${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }}" >> "$GITHUB_OUTPUT"
           else
-            echo "TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }},${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }}-$DATE" >> "$GITHUB_OUTPUT"
+            echo "TAGS=${{ secrets.DOCKER_HUB_USERNAME }}/archlinux:${{ matrix.tag }}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build & Push Latest Image
